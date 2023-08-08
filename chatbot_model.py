@@ -36,9 +36,6 @@ def run_model(promptt):
 
     db = SQLDatabase.from_uri("sqlite:////home/aditya/Cryptography/llllllll.db")
     
-    
-
-
     from langchain.prompts.prompt import PromptTemplate
 
     _DEFAULT_TEMPLATE = """Given an input question,first create a syntactically correct {dialect} query to run, the limit of the sql is 5.Also give a detailed answer of the question.
@@ -51,7 +48,6 @@ def run_model(promptt):
             SQLResult: "Result of the SQLQuery"
 
             Answer: "Give the final answer"
-
 
             Only use the following tables:
 
@@ -69,7 +65,6 @@ def run_model(promptt):
 
     db_chain = SQLDatabaseChain.from_llm(llm, db, prompt=PROMPT, verbose=True, return_intermediate_steps=True,top_k = 3)
 
-    
     result = db_chain(promptt)
     ans = result["intermediate_steps"]
     # print(ans)
