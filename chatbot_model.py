@@ -1,3 +1,15 @@
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
+
+load_dotenv()
+
+OPENAI_API_TYPE = os.getenv("OPENAI_API_TYPE")
+OPENAI_API_VERSION = os.getenv("OPENAI_API_VERSION")
+OPENAI_API_BASE = os.getenv("OPENAI_API_BASE")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
 def run_model(promptt):
     
     import json
@@ -63,11 +75,11 @@ def run_model(promptt):
     # print(ans)
     x = ans[len(ans) - 1]
     # print(type(x))
-    print(x)
+    return x
     # json_data = json.loads(x)
     # print(json_data)
     # print(type(json_data))
     # return json_data
 
-run_model("which machine gives highest TPT")
+res = run_model("which machine gives highest TPT")
 
